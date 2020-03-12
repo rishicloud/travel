@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition template="./template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <h3>welcome to Travel Application</h3>
+        <h:form>
+            <p:messages/>
+                     
+                                <div class="ui-fluid">
+                <p:panelGrid layout="grid" columns="2" columnClasses="ui-grid-col-3,ui-grid-col-9" styleClass="ui-panelgrid-blank">
+                        <p:outputLabel for="userName" value="Username:"/>
+                        <p:inputText id="userName" size="30" maxlength="40"
+                                     value="#{loginBean.user.userName}"/>
+                        <p:outputLabel for="password" value="Password"/>
+                        <p:password id="password" size="30" maxlength="40"
+                                     value="#{loginBean.user.password}">
+                        </p:password>
+                    </p:panelGrid>
+                </div>
+                <p:commandButton id="login" action="#{loginBean.login}" value="login"   ajax="false"/>
+                 
+           </h:form>
+    </ui:define>
+</ui:composition>
+    
+

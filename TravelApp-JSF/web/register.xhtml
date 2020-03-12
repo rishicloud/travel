@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<ui:composition template="./template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="content">
+        <h3>welcome to Travel Application</h3>
+        <h:form>
+            <p:messages/>
+                     
+                                <div class="ui-fluid">
+                <p:panelGrid layout="grid" columns="2" columnClasses="ui-grid-col-3,ui-grid-col-9" styleClass="ui-panelgrid-blank">
+                        <p:outputLabel for="firstName" value="First Name:"/>
+                        <p:inputText id="firstName" size="30" maxlength="40" required="true"
+                                     value="#{loginBean.user.firstName}">
+                        <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:outputLabel for="lastName" value="Last Name:"/>
+                        <p:inputText id="lastName" size="30" maxlength="40" required="true"
+                                     value="#{loginBean.user.lastName}">
+                        <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:outputLabel for="userName" value="Username:"/>
+                        <p:inputText id="userName" size="30" maxlength="40" required="true"
+                                     value="#{loginBean.user.userName}" >
+                        <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:outputLabel for="email" value="Email:"/>
+                        <p:inputText id="email" size="30" maxlength="40"
+                                     required="true"
+                                     value="#{loginBean.user.email}"  validatorMessage="Your email is not valid">
+                        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                        </p:inputText>
+                        <p:outputLabel for="age" value="Age"/>
+                        <p:inputText id="age" size="30" maxlength="40" required="true" converter="javax.faces.Integer"
+                                     value="#{loginBean.user.age}">
+                        <f:validateLength minimum="1"/>
+                        </p:inputText>    
+                        <p:outputLabel for="gender" value="Gender:"/>
+                        <p:selectOneRadio id="gender"
+                                          required="true    "
+                                          value="#{loginBean.user.gender}">
+                            <f:selectItem itemLabel="Male" itemValue="f"/>
+                            <f:selectItem itemLabel="Female" itemValue="m"/>
+                            
+                        </p:selectOneRadio>
+                        <p:outputLabel for="password" value="Password"/>
+                        <p:password id="password" size="30" maxlength="40"
+                                     feedback="true"
+                                     required="true"
+                                     value="#{loginBean.user.password}">
+                            
+                            <f:validateLength minimum="8" maximum="20" />
+                        </p:password>
+                    </p:panelGrid>
+                </div>
+                <p:commandButton id="submit" action="#{loginBean.submit}" value="Submit" ajax="false"/>
+            </h:form>
+    </ui:define>
+</ui:composition>
+    
+            
+   
+
+
